@@ -60,4 +60,9 @@ target/
 
 #Ipython Notebook
 .ipynb_checkpoints
-.idea/*
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/pythonic-demos.iml
+.idea/vcs.xml
+.DS_Store
