@@ -34,6 +34,11 @@ class AClass:
         self.data.append(item)
 
     def __bool__(self):
+        """
+        Magic method that evaluates the implicit truthiness of an instance
+        of this class.
+        :return: the implicit truth value
+        """
         return True if self.data else False
 
 a = AClass()
@@ -41,5 +46,3 @@ a = AClass()
 print_truthiness("Empty AClass", a)
 a.add("Thing")
 print_truthiness("nonempty AClass", a)
-
-

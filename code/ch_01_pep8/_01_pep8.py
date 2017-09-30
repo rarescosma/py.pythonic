@@ -1,6 +1,39 @@
+# ******** Part 1 - Imports **************************
+# BAD: import sys, os, multiprocessing
+# BAD: from statistics import *
+
+# GOOD
+import collections
+import os
+import multiprocessing
+import sys
+from statistics import mean
+from os import path, chmod, chown
+
+# But multiple symbols are OK
+
+#  Imports should be grouped in the following order:
+#
+#     standard library imports
+#     related third party imports
+#     local application/library specific imports
+#
+# You should put a blank line between each group of imports.
+
+# There meaningless lines are here to prevent PyCharm from warning about
+# unused imports and such. We want to see real warnings only. In a
+# legitimate app, those other warnings would be useful but not here.
+s = sys
+o = os
+m = multiprocessing
+zp = path
+zm = chmod
+zo = chown
+sm = mean
+c = collections
+
+
 # ******** Part 2 - code layout **************************
-
-
 class AClass:
     def m1(self):
         pass
@@ -14,22 +47,23 @@ class AClass:
 
 def some_method(a1, a2, a3):
     """
-    some_method returns the larger of 1 or 2
+    some_method returns the larger of a1 or a2
+    if a3 is True, then the smaller of a1 or a2 is returned
 
     :param a1: First item to compare
     :param a2: Second item to compare
     :param a3: Should reverse
-    :return: 1 or 2
+    :return: a1 or a2
     """
-    x = 1
+    smaller = a1
+    larger = a2
+    if a1 > a2:
+        smaller = a2
+        larger = a1
 
-    if x > 2:
-        return 1
-    else:
-        return 2
+    return [smaller if a3 else larger]
 
-
-some_method(1, 1, 2)
+print(some_method(3, 1, True))
 
 
 def other_method():
@@ -44,22 +78,7 @@ def other_method3():
     pass
 
 
-s = "Text"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+st = "Text"
 
 
 # Use 4 spaces per indentation level.
@@ -67,6 +86,8 @@ s = "Text"
 def method():
     four_spaces_indented = True
     more_vars = 1
+
+    return four_spaces_indented + more_vars
 
 
 # Limit all lines to a maximum of 79 characters.
@@ -96,69 +117,8 @@ text = "This is a string which is longer than 79 characters. This is not encoura
 
 # If a function argument's name clashes with a reserved keyword,
 # it is generally better to append a single trailing underscore rather
-# than use an abbreviation or spelling corruption. Thus class_ is better than clss
+# than use an abbreviation or spelling corruption. Thus class_ is better than class
 
 # Constants are usually defined on a module level and written in all capital
 # letters with underscores separating words. Examples include MAX_OVERFLOW and
 # TOTAL.
-
-
-
-
-
-
-
-
-
-
-# ******** Part 1 - Imports **************************
-import collections
-
-# no: import collections, os, multiprocessing
-# import collections
-# import os
-# import multiprocessing
-
-
-# from my_module import path
-from os import chdir, chflags, chown
-
-# from os import *
-
-# ERROR:
-# import sys, os, multiprocessing
-
-# But multiple symbols are OK
-
-#  Imports should be grouped in the following order:
-#
-#     standard library imports
-#     related third party imports
-#     local application/library specific imports
-#
-# You should put a blank line between each group of imports.
-
-
-# Wildcards:
-# no: import collections, os, multiprocessing
-
-
-
-
-
-
-
-
-
-
-# There meaningless lines are here to prevent PyCharm from warning about
-# unused imports and such. We want to see real warnings only. In a
-# legitimate app, those other warnings would be useful but not here.
-s = sys
-o = os
-m = multiprocessing
-z = path
-z = chmod
-z = chown
-m = mean
-c = collections
